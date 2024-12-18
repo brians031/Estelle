@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirection Email</title>
+</head>
+<body>
+  <script>
+    // Lorsque la page est chargée
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lien mailto: avec l'objet et le corps prérempli
+      var mailtoLink = "mailto:contact@agm-tec.com?subject=" + encodeURIComponent("demande de contact") + "&body=" + encodeURIComponent("Bonjour,\n\nJe suis intéressé et je souhaiterai obtenir plus d’informations concernant votre matériel.\n\nMerci de me contacter\nPar téléphone :\nPar mail :");
+
+      // Ouvre l'application de messagerie avec le lien mailto
+      var newWindow = window.open(mailtoLink, "_blank", "width=1,height=1,top=-1000,left=-1000");
+
+      // Si la fenêtre pop-up est ouverte, on peut afficher un message
+      if (newWindow) {
+        setTimeout(function() {
+          alert("L'email a été ouvert. Vous pouvez maintenant fermer cette page.");
+        }, 1000); // Affiche après 1 seconde
+      }
+
+      // Ferme la page courante
+      window.close();
+    });
+  </script>
+</body>
+</html>
